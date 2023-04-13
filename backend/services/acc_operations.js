@@ -42,8 +42,7 @@ const validate_token = async(token) => {
 module.exports = {
     login,
     register,
-    validate_token,
-    get_address
+    validate_token
 }
 
 // test = async() => {

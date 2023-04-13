@@ -1,5 +1,5 @@
-import { login, register, validate_token, get_address } from '../services/acc_operations';
-import template from './template';
+const { login, register, validate_token } = require('../services/acc_operations');
+const template = require('./template');
 
 const registerController = template(async(req) => {
     await register(req.body);
@@ -11,19 +11,15 @@ const loginController = template(async(req) => {
     return token;
 })
 
-const validateTokenController = template(async(req) => {
-    const valid = await validate_token(req.body.token);
-    return valid
-})
+// const validateTokenController = template(async(req) => {
+//     const valid = await validate_token(req.body.token);
+//     return valid
+// })
 
-const getAddressController = template(async(req) => {
-    const address = get_address({username: req.query.username});
-    return address
-})
 
-export default {
+
+module.exports =  {
     loginController,
     registerController,
-    validateTokenController,
-    getAddressController
+    // validateTokenController
 }
