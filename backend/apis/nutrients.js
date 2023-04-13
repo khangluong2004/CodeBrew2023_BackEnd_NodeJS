@@ -19,14 +19,16 @@ const processes = async () => {
             pageNumber: 1
         }
     });
+    general_info = nutrients.data.foods;
+    // console.log(general_info);
+    // console.log(general_info[0].finalFoodInputFoods); Where to find gramWeight of total. Scale to input
     nutrients = nutrients.data.foods[0].foodNutrients;
     for (let i = 0; i < nutrients.length; i++){
-        console.log(nutrients[i]);
-        nutrients_types[nutrients[i].nutrientName] = {amount: parseFloat(nutrients[i].nutrientNumber), unit: nutrients[i].unitName};
+        nutrients_types[nutrients[i].nutrientName] = {amount: parseFloat(nutrients[i].value), unit: nutrients[i].unitName};
         types_only.push([nutrients[i].nutrientName, nutrients[i].unitName]);
     }
     console.log(nutrients_types);
-    console.log(types_only);
+    // console.log(types_only);
 }
 
 processes();
