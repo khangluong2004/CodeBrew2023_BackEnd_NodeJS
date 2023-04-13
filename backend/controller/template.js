@@ -1,7 +1,7 @@
 //require('dotenv').config();
 const Logger = require('../utils/logger');
 
-const template = (mainFunc) => async(req, res) => {
+const template = (mainFunc, error_code = 400) => async(req, res) => {
     try {
         const val = await mainFunc(req);
         if (process.env.NODE_ENV !== "testing"){
@@ -12,7 +12,7 @@ const template = (mainFunc) => async(req, res) => {
         if (process.env.NODE_ENV !== "testing"){
             Logger.error(e);
         }
-        res.status(400).send();
+        res.status(error_code).send();
     }
 };
 

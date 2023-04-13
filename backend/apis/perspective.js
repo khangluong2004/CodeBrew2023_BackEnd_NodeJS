@@ -1,3 +1,8 @@
+const dotenv = require("dotenv");
+dotenv.config();
+
+console.log(process.env.PERSPECTIVE_API_KEY);
+
 const Perspective = require('perspective-api-client');
 const perspective = new Perspective({apiKey: process.env.PERSPECTIVE_API_KEY});
 
