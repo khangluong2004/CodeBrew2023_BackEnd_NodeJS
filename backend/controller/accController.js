@@ -11,15 +11,15 @@ const loginController = template(async(req) => {
     return token;
 })
 
-// const validateTokenController = template(async(req) => {
-//     const valid = await validate_token(req.body.token);
-//     return valid
-// })
+const validateTokenController = template(async(req) => {
+    const valid = await validate_token(req.body.token);
+    return valid
+})
 
 
 
 module.exports =  {
     loginController,
     registerController,
-    // validateTokenController
+    validateTokenController
 }

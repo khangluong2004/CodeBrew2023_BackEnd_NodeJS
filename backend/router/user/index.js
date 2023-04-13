@@ -8,6 +8,6 @@ const route = Router();
 
 route.use('/login', login);
 route.use('/register', register);
-// route.use('/validate_token', validate_token);
+route.use('/validate_token', validate_token);
 
 module.exports = route;

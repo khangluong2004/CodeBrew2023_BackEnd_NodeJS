@@ -36,7 +36,7 @@ const validate_token = async(token) => {
     if (!user){
         throw new Error("No user is found or user is not logged in")
     }
-    return(decoded_username)
+    return(true)
 }
 
 module.exports = {
