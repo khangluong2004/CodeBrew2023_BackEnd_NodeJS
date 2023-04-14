@@ -18,17 +18,3 @@ const ChatPostSchema = new mongoose.Schema({
 const ChatPost = mongoose.model('chat_posts', ChatPostSchema);
 
 module.exports = ChatPost;
-
-// test = async() => {
-//     for (let i = 0; i < list.length; i++){
-//         let new_product = new Product({...list[i], brand: "Woolworth"});
-//         await new_product.save();
-//     }
-//     console.log('done');
-// }
-
-// try{
-//     test();
-// }catch(e){
-//     console.log(e);
-// }
