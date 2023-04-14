@@ -10,10 +10,10 @@ User account management:
 #### Add your token as {token} in the header
 Products management:
 1. /products/list: Body {} -> 200: {data: [{product: str, price: num, quantity: num, unit: str}, ...]}
-2. /products/info: Body {name, quantity, unit} -> 200: {data: {nutrient_name: {quantity: num, unit: str}, ...}}
+2. /products/info: Body {name, quantity (in g)} -> 200: {data: {nutrient_name: {quantity: num, unit: str}, ...}}
 
 Recipe:
-1. /recipe/search: Body {query, diet, intolerance, direction: ("asc" or "desc")} -> 200: {data: [{image: url, summary: str, sourceUrl: url, pricePerServing: num} of 5]}
+1. /recipe/search: Body {query, diet, intolerance, direction: ("asc" or "desc")} -> 200: {data: [{image: url, summary: str, sourceUrl: url, pricePerServing: num, ...} of 5]}
 2. /recipe/add_normal: Body {username, ingredients: [str1, str2, ...], instructions} -> 200: {data: true}
 3. /recipe/retrieve_normals: Body {username} -> {data: [{ingredients: [str1, str2, ...], instructions}]}   
 4. /recipe/add_online: Body {username, image, sourceUrl, summary, pricePerServing} -> 200: {data: true}

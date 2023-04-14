@@ -8,5 +8,13 @@ const productList = async() => {
     return(result);
 }
 
-const productInfo = async({name, quantity, unit}) => { 
+const productInfo = async({name, quantity}) => {
+     //Assume unit is in gram
+    const result = await get_nutrients_per_gram(name, quantity);
+    return(result);
+}
+
+module.exports = {
+    productList,
+    productInfo
 }

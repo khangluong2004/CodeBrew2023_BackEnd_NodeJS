@@ -3,7 +3,7 @@ const axios = require("axios");
 const dotenv = require("dotenv");
 dotenv.config();
 
-const get_nutrients_per_gram = async (query) => {
+const get_nutrients_per_input = async (query, input_mass) => {
     const displayed_types = ['Water', 'Protein', 'Total lipid (fat)', 'Carbohydrate, by difference', 
     'Sugars, total including NLEA', 'Fiber, total dietary', 'Cholesterol', 'Fatty acids, total saturated', 'Fatty acids, total monounsaturated', 'Fatty acids, total polyunsaturated',
     'Vitamin A, RAE', 'Vitamin E (alpha-tocopherol)', 'Vitamin D (D2 + D3)', 'Vitamin C, total ascorbic acid', 'Vitamin B-6', 'Vitamin B-12', 'Calcium, Ca', 'Iron, Fe']
@@ -51,14 +51,14 @@ const get_nutrients_per_gram = async (query) => {
         }
     }
     for (const prop in nutrients_types){
-        nutrients_types[prop] = {amount: nutrients_types[prop]["amount"] / quantity, unit: nutrients_types[prop]["unit"]};
+        nutrients_types[prop] = {amount: nutrients_types[prop]["amount"] / quantity * input_mass, unit: nutrients_types[prop]["unit"]};
     }
-
     //Nutrient types per gram
     return(nutrients_types);
 }
 
-module.exports = get_nutrients_per_gram;
+
+module.exports = get_nutrients_per_input;
 
 // Check structure of db. Apparently there is none.
     // if (measures.length != 0){
