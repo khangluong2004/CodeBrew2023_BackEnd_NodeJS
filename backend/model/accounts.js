@@ -18,7 +18,17 @@ const UserSchema = new mongoose.Schema({
         trim: true,
         minLength: 7,
         match: /^([a-z|A-Z|0-9]*)$/i
-    }
+    },
+    email: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    storage: [{
+        label: String,
+        expiry: Date,
+        brand: String,
+    }]
     
 })
 
@@ -39,14 +49,13 @@ UserSchema.methods.genToken = async function(){
 
 const User = mongoose.model('user', UserSchema);
 
-module.exports = User;
-
-
 
 // test = async() => {
 //     const new_user = new User({
 //         username: "CodeBruh",
 //         password: "1234567",
+//         email: "a@gmail.com",
+//         storage: [{label: "chicken", expiry: '2023-12-09', brand: "Woolworth"}]
 //     })
 //     await new_user.save(); 
 //     console.log('done');
@@ -57,3 +66,6 @@ module.exports = User;
 // }catch(e){
 //     console.log(e);
 // }
+
+
+module.exports = User;

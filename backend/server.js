@@ -14,6 +14,7 @@ const cors = require('cors');
 
 //Connect db
 require('./model/db');
+require('./model/accounts');
 //Start auto_admin server
 // require('./process/auto_admin')
 
@@ -29,7 +30,7 @@ try {
         optionSuccessStatus:200
     }
 
-    app.use(cors(corsOptions));
+    app.use(cors());
     //Parsing request body
     //JSON format
     app.use(bodyParser.json());

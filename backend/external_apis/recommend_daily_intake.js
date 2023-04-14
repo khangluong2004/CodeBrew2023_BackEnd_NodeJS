@@ -1,3 +1,7 @@
+const displayed_types = ['Protein', 'Total lipid (fat)', 'Carbohydrate, by difference', 
+'Sugars, total including NLEA', 'Fiber, total dietary', 'Cholesterol', 'Fatty acids, total saturated', 'Fatty acids, total monounsaturated', 'Fatty acids, total polyunsaturated',
+'Vitamin A, RAE', 'Vitamin E (alpha-tocopherol)', 'Vitamin D (D2 + D3)', 'Vitamin C, total ascorbic acid', 'Vitamin B-6', 'Vitamin B-12']
+
 const recommended_daily = {
     'Protein': { amount: 56, unit: 'G' },
     'Total lipid (fat)': { amount: 55.5 , unit: 'G' },
