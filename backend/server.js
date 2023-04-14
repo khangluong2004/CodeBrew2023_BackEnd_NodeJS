@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const multer = require('multer');
 const upload = multer();
 const user_route = require('./router/user/index');
+const api_route = require('./router/api/index')
 
 const express = require('express');
 
@@ -14,7 +15,7 @@ const cors = require('cors');
 
 //Connect db
 require('./model/db');
-require('./model/accounts');
+require('./model/products');
 //Start auto_admin server
 // require('./process/auto_admin')
 
@@ -42,6 +43,7 @@ try {
 
     // app.use('/api', api_route);
     app.use('/user', user_route);
+    app.use('/api', api_route)
 
     app.listen(port, '0.0.0.0', () => {
         console.log('Server is started on: ', port);
