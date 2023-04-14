@@ -23,12 +23,12 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: true,
         trim: true
-    },
-    storage: [{
-        label: String,
-        expiry: Date,
-        brand: String,
-    }]
+    }
+    // storage: [{
+    //     label: String,
+    //     expiry: Date,
+    //     brand: String,
+    // }]
     
 })
 
@@ -55,7 +55,6 @@ const User = mongoose.model('user', UserSchema);
 //         username: "CodeBruh",
 //         password: "1234567",
 //         email: "a@gmail.com",
-//         storage: [{label: "chicken", expiry: '2023-12-09', brand: "Woolworth"}]
 //     })
 //     await new_user.save(); 
 //     console.log('done');

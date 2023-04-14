@@ -1,11 +1,7 @@
 // Food data central
 const axios = require("axios");
-const dotenv = require("dotenv");
-dotenv.config();
-
-
-
-console.log(process.env.SPOON_RECIPE_KEY);
+// const dotenv = require("dotenv");
+// dotenv.config();
 
 
 

@@ -15,7 +15,7 @@ const cors = require('cors');
 
 //Connect db
 require('./model/db');
-require('./model/products');
+require('./services/user_recipe_operations');
 //Start auto_admin server
 // require('./process/auto_admin')
 

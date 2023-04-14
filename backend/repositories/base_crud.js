@@ -21,7 +21,7 @@ const getAll = async(model) => {
 
 
 const updateEntry = async(model, filter_obj, update_obj) => {
-    const updated = await model.findOneAndUpdate({...filter_obj}, update_obj, {new: true});
+    const updated = await model.findOneAndUpdate({...filter_obj}, update_obj);
     return(updated)
 }
 
