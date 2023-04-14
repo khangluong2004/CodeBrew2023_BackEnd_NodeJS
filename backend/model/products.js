@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 const ProductSchema = new mongoose.Schema({
     product: {
         type: String,
-        required: true
+        required: true,
     },
     price: {
         type: Number,
@@ -31,30 +31,10 @@ const Product = mongoose.model('products', ProductSchema);
 module.exports = Product;
 
 // test = async() => {
-//     const new_product = new Product({
-//         product: "chicken",
-//         price: 12.5,
-//         quantity: 1,
-//         unit: "kg",
-//         brand: "Woolworth"
-//     })
-//     const new_product1 = new Product({
-//         product: "milk",
-//         price: 2.5,
-//         quantity: 100,
-//         unit: "ml",
-//         brand: "Woolworth"
-//     })
-//     const new_product2 = new Product({
-//         product: "orange juice",
-//         price: 1,
-//         quantity: 100,
-//         unit: "ml",
-//         brand: "Woolworth"
-//     })
-//     await new_product.save(); 
-//     await new_product1.save(); 
-//     await new_product2.save(); 
+//     for (let i = 0; i < list.length; i++){
+//         let new_product = new Product({...list[i], brand: "Woolworth"});
+//         await new_product.save();
+//     }
 //     console.log('done');
 // }
 
