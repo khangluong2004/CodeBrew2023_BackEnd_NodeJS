@@ -14,8 +14,11 @@ Products management:
 
 Recipe:
 1. /recipe/search: Body {query, diet, intolerance, direction: ("asc" or "desc")} -> 200: {data: [{image: url, summary: str, sourceUrl: url, pricePerServing: num} of 5]}
-2. /recipe/add_normal: Body {ingredients: [str1, str2, ...], instructions} -> 200: {data: true}
-3. /recipe/add_online: Body {image, sourceUrl, summary, pricePerServing} -> 200: {data: true}
+2. /recipe/add_normal: Body {username, ingredients: [str1, str2, ...], instructions} -> 200: {data: true}
+3. /recipe/retrieve_normals: Body {username} -> {data: [{ingredients: [str1, str2, ...], instructions}]}   
+4. /recipe/add_online: Body {username, image, sourceUrl, summary, pricePerServing} -> 200: {data: true}
+5. /recipe/retrieve_onlines: Body {username} -> {data: [{image: url, summary: str, sourceUrl: url, pricePerServing: num}]}
 
 Chat:
-1. /chat/post: Body {post} -> 200: {data: true/ false (if toxic)}
+1. /chat/post: Body {post, date, likes} -> 200: {data: true/ false (if toxic)}
+2. /chat/retrieve: Body {post, date} -> 200: {data: [{post, like}, ... for 10 latest things]}
