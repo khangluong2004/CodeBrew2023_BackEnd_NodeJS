@@ -4,12 +4,12 @@ const template = require('./template');
 const productListControlller = template(async(req) => {
     const result = await productList(req.body);
     return(result);
-}, 401);
+}, 500);
 
 const productInfoControlller = template(async(req) => {
     const result = await productInfo(req.body);
     return(result);
-}, 401);
+}, 500);
 
 module.exports =  {
     productListControlller,
