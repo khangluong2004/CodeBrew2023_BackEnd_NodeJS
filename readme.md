@@ -23,4 +23,4 @@ Chat:
 2. /chat/retrieve_post: Body {} -> 200: {data: [{username, post, date, likes}, ... for 50 latest things]}
 3. /chat/recipe_post: Body {username, ingredients, instructions, date, likes} -> 200: {data: true/ false (if toxic)}
 4. /chat/retrieve_recipe: Body {} -> 200: {data: [{username, ingredients, instructions, date, likes}, ... for 50 latest things]}
-For updating likes: Just resend the post with the new likes.
+For updating likes: Just resend the post (1 and 3) with the new likes.

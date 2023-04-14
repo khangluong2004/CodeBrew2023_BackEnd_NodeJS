@@ -1,13 +1,13 @@
-const dotenv = require("dotenv");
-dotenv.config();
+// const dotenv = require("dotenv");
+// dotenv.config();
 
-console.log(process.env.PERSPECTIVE_API_KEY);
 
 const Perspective = require('perspective-api-client');
 const perspective = new Perspective({apiKey: process.env.PERSPECTIVE_API_KEY});
 
-(async () => {
-  const text = 'Fuck you!';
+const check_toxic = async (text) => {
   const result = await perspective.analyze(text);
-  console.log(JSON.stringify(result, null, 2));
-})();
+  return(result.attributeScores["TOXICITY"]["summaryScore"]["value"])
+};
+
+module.exports = {check_toxic};

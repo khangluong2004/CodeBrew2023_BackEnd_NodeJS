@@ -1,6 +1,51 @@
-const {create, getAll} = require("../repositories/index");
+const {create, getAll, updateEntry} = require("../repositories/index");
 const  {chatPost, chatRecipe} = require("../model/index");
+const {check_toxic} = require("../external_apis/perspective")
 
 const chat_post = async({username, post, date, likes}) => {
+    const result = await check_toxic(post);
+    if (result > 0.6){
+        return false;
+    }
     
+    const check = await getOne(chatPost, {username, post, date, likes});
+    if (!check){
+        await create(chatPost, {username, post, date, likes})
+    } else {
+        await updateEntry(chatPost, {username, post, date}, {username, post, date, likes});
+    }
+    return true; 
+    
+}
+
+const chat_recipe_post = async({username, ingredients, instructions, date, likes}) => {
+    const result = await check_toxic(instructions);
+    if (result > 0.6){
+        return false;
+    }
+    
+    const check = await getOne(chatRecipe, {username, ingredients, instructions, date, likes});
+    if (!check){
+        await create(chatRecipe, {username, ingredients, instructions, date, likes})
+    } else {
+        await updateEntry(chatRecipe, {username, ingredients, instructions, date}, {username, ingredients, instructions, date, likes});
+    }
+    return true; 
+}
+
+const chat_retrieve_post = async() => {
+    const all = await getAll(chatPost);
+    return(all) 
+}
+
+const chat_retrieve_recipe = async() => {
+    const all = await getAll(chatRecipe);
+    return(all) 
+}
+
+module.exports = {
+    chat_post,
+    chat_recipe_post,
+    chat_retrieve_post,
+    chat_retrieve_recipe
 }
