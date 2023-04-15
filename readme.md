@@ -1,4 +1,9 @@
 # Codebrew Backend API
+## External API:
+1. Spoonacular API (Search recipe): https://spoonacular.com/food-api/docs
+2. FoodDataCentral API (Nutrients recipe): https://fdc.nal.usda.gov/ 
+3. Perspective API (Checking post toxicity): https://perspectiveapi.com/ 
+## INTERNAL API:
 ### 400: Always empty
 User account management:
 1. /user/login: Body {username: str, password: str, email: str} -> 200: {token: JWT token} or 400: empty
