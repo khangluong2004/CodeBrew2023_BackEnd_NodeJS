@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 
 const ChatRecipeSchema = new mongoose.Schema({
+    name: String,
     username: {
         type: String,
         required: true

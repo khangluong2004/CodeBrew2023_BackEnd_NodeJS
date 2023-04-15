@@ -18,17 +18,17 @@ const chat_post = async({username, post, likes}) => {
     
 }
 
-const chat_recipe_post = async({username, ingredients, instructions, likes}) => {
+const chat_recipe_post = async({username, name, ingredients, instructions, likes}) => {
     const result = await check_toxic(instructions);
     if (result > 0.6){
         return false;
     }
     
-    const check = await getOne(chatRecipe, {username, ingredients, instructions});
+    const check = await getOne(chatRecipe, {username, name, ingredients, instructions});
     if (!check){
-        await create(chatRecipe, {username, ingredients, instructions, likes})
+        await create(chatRecipe, {username, name, ingredients, instructions, likes})
     } else {
-        await updateEntry(chatRecipe, {username, ingredients, instructions}, {username, ingredients, instructions, likes});
+        await updateEntry(chatRecipe, {username, name, ingredients, instructions}, {username, name, ingredients, instructions, likes});
     }
     return true; 
 }
