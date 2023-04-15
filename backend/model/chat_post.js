@@ -10,7 +10,6 @@ const ChatPostSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    date: Date,
     likes: Number
 })
 

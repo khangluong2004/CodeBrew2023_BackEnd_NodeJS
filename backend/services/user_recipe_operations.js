@@ -1,10 +1,11 @@
 const {getOne, updateEntry} = require("../repositories/index");
 const  {userRecipes} = require("../model/index");
 
-const recipe_add_normal = async({username, ingredients, instructions}) => {
+const recipe_add_normal = async({username, name, ingredients, instructions}) => {
     try {
         let entry = await getOne(userRecipes, {username});
         entry.normal.unshift({
+            name,
             ingredients,
             instructions
         });
@@ -16,11 +17,12 @@ const recipe_add_normal = async({username, ingredients, instructions}) => {
     }
 }
 
-const recipe_add_online = async({username, image, sourceUrl, summary, pricePerServing}) => {
+const recipe_add_online = async({username, name, image, sourceUrl, summary, pricePerServing}) => {
     try {
         let entry = await getOne(userRecipes, {username});
         entry.online.unshift({
             image,
+            name,
             sourceUrl,
             summary,
             pricePerServing

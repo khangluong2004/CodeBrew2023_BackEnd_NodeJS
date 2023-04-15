@@ -12,7 +12,6 @@ const ChatRecipeSchema = new mongoose.Schema({
     instructions: {
         type: String
     },
-    date: Date,
     likes: Number
 })
 

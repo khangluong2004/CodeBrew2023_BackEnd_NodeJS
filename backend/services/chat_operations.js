@@ -2,33 +2,33 @@ const {create, getOne, getAll, updateEntry} = require("../repositories/index");
 const  {chatPost, chatRecipe} = require("../model/index");
 const {check_toxic} = require("../external_apis/perspective")
 
-const chat_post = async({username, name, post, date, likes}) => {
+const chat_post = async({username, post, likes}) => {
     const result = await check_toxic(post);
     if (result > 0.6){
         return false;
     }
     
-    const check = await getOne(chatPost, {username, name, post, date, likes});
+    const check = await getOne(chatPost, {username, post});
     if (!check){
-        await create(chatPost, {username, name, post, date, likes})
+        await create(chatPost, {username, post, likes})
     } else {
-        await updateEntry(chatPost, {username, name, post, date}, {username, name, post, date, likes});
+        await updateEntry(chatPost, {username, post}, {username, post, likes});
     }
     return true; 
     
 }
 
-const chat_recipe_post = async({username, name, ingredients, instructions, date, likes}) => {
+const chat_recipe_post = async({username, ingredients, instructions, likes}) => {
     const result = await check_toxic(instructions);
     if (result > 0.6){
         return false;
     }
     
-    const check = await getOne(chatRecipe, {username, name, ingredients, instructions, date, likes});
+    const check = await getOne(chatRecipe, {username, ingredients, instructions});
     if (!check){
-        await create(chatRecipe, {username, name, ingredients, instructions, date, likes})
+        await create(chatRecipe, {username, ingredients, instructions, likes})
     } else {
-        await updateEntry(chatRecipe, {username, name, ingredients, instructions, date}, {username, name, ingredients, instructions, date, likes});
+        await updateEntry(chatRecipe, {username, ingredients, instructions}, {username, ingredients, instructions, likes});
     }
     return true; 
 }
