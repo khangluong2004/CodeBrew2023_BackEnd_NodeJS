@@ -1,4 +1,4 @@
-const {create, getAll, updateEntry} = require("../repositories/index");
+const {create, getOne, getAll, updateEntry} = require("../repositories/index");
 const  {chatPost, chatRecipe} = require("../model/index");
 const {check_toxic} = require("../external_apis/perspective")
 
