@@ -12,8 +12,8 @@ const recipeAddOnline = template(async(req) => {
 }, 500);
 
 const recipeRetrieve = template(async(req) => {
-    await recipe_retrieve(req.body);
-    return {data: true};
+    const result = await recipe_retrieve(req.body);
+    return {data: result};
 }, 500)
 
 module.exports = {
