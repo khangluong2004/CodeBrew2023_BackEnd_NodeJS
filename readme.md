@@ -19,8 +19,8 @@ Recipe:
 4. /recipe/retrieve (50% tested): Body {username} -> {data: {online: [{image: url, summary: str, sourceUrl: url, pricePerServing: num}, ...], normal: [{ingredients: [str1, str2, ...], instructions}, ...]}}
 
 Chat:
-1. /chat/post: Body {username, post, date, likes} -> 200: {data: true/ false (if toxic)}
+1. /chat/post: Body {username, name, post, date, likes} -> 200: {data: true/ false (if toxic)}
 2. /chat/retrieve_post: Body {} -> 200: {data: [{username, post, date, likes}, ... for 50 latest things]}
-3. /chat/recipe_post: Body {username, ingredients, instructions, date, likes} -> 200: {data: true/ false (if toxic)}
+3. /chat/recipe_post: Body {username, name, ingredients, instructions, date, likes} -> 200: {data: true/ false (if toxic)}
 4. /chat/retrieve_recipe: Body {} -> 200: {data: [{username, ingredients, instructions, date, likes}, ... for 50 latest things]}
 For updating likes: Just resend the post (1 and 3) with the new likes.

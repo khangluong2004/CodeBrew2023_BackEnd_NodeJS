@@ -8,6 +8,7 @@ const RecipeSchema = new mongoose.Schema({
         unique: true
     },
     normal: [{
+        name: String,
         ingredients: [{
             type: String
         }],
@@ -16,6 +17,7 @@ const RecipeSchema = new mongoose.Schema({
         }
     }],
     online: [{
+        name: String,
         image: String,
         sourceUrl: String,
         summary: String,
