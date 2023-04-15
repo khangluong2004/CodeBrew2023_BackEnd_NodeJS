@@ -1,7 +1,7 @@
 // Food data central
 const axios = require("axios");
-const dotenv = require("dotenv");
-dotenv.config();
+// const dotenv = require("dotenv");
+// dotenv.config();
 
 const get_nutrients_per_input = async (query, input_mass) => {
     const displayed_types = ['Water', 'Protein', 'Total lipid (fat)', 'Carbohydrate, by difference', 
@@ -50,15 +50,14 @@ const get_nutrients_per_input = async (query, input_mass) => {
             quantity = quantity + parseFloat(nutrients[i].value) * conversion[nutrients[i].unitName];
         }
     }
-    for (const prop in nutrients_types){
+    for (let prop in nutrients_types){
         nutrients_types[prop] = {amount: nutrients_types[prop]["amount"] / quantity * input_mass, unit: nutrients_types[prop]["unit"]};
     }
     //Nutrient types per gram
     return(nutrients_types);
 }
 
-
-module.exports = get_nutrients_per_input;
+module.exports = {get_nutrients_per_input};
 
 // Check structure of db. Apparently there is none.
     // if (measures.length != 0){
