@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 
 const ChatRecipeSchema = new mongoose.Schema({
     name: String,
+    pricePerServing: Number,
     username: {
         type: String,
         required: true
@@ -13,8 +14,7 @@ const ChatRecipeSchema = new mongoose.Schema({
     instructions: {
         type: String
     },
-    likes: Number,
-    pricePerServing: Number
+    likes: Number
 })
 
 
