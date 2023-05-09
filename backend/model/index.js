@@ -4,5 +4,6 @@ module.exports={
     products: require('./products'),
     userRecipes: require('./user_recipes'),
     chatPost: require('./chat_post'),
-    chatRecipe: require('./chat_recipe')
+    chatRecipe: require('./chat_recipe'),
+    Fridge: require('./fridge')
 }

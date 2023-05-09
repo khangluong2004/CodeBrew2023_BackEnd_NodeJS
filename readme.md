@@ -18,10 +18,14 @@ Products management:
 2. /products/info: Body {name, quantity (in g)} -> 200: {data: {nutrient_name: {quantity: num, unit: str}, ...}}
 
 Recipe:
-1. /recipe/search (50% tested): Body {query, diet, intolerance, direction: ("asc" or "desc")} -> 200: {data: [{image: url, summary: str, sourceUrl: url, pricePerServing: num, ...} of 5]}
-2. /recipe/add_normal (50% tested): Body {username, ingredients: [str1, str2, ...], instructions, pricePerServing} -> 200: {data: true}
-3. /recipe/add_online (50% tested): Body {username, image, sourceUrl, summary, pricePerServing} -> 200: {data: true}
-4. /recipe/retrieve (50% tested): Body {username} -> {data: {online: [{image: url, summary: str, sourceUrl: url, pricePerServing: num}, ...], normal: [{ingredients: [str1, str2, ...], instructions}, ...]}}
+1. /recipe/search: Body {query, diet, intolerance, direction: ("asc" or "desc")} -> 200: {data: [{image: url, summary: str, sourceUrl: url, pricePerServing: num, ...} of 5]}
+2. /recipe/add_normal: Body {username, ingredients: [str1, str2, ...], instructions, pricePerServing} -> 200: {data: true}
+3. /recipe/add_online: Body {username, image, sourceUrl, summary, pricePerServing} -> 200: {data: true}
+4. /recipe/retrieve: Body {username} -> {data: {online: [{image: url, summary: str, sourceUrl: url, pricePerServing: num}, ...], normal: [{ingredients: [str1, str2, ...], instructions}, ...]}}
+
+My Fridge:
+1. /fridge/post: Body {username, ingredients: [str1, str2, ...], expiry_date: [Date1, Date2, ...], quantity: [int1, int2, ...], measures: [str1, tr2, ...]} -> 200: {data: true}
+2. /fridge/get: Body {username} -> 200: {data: {username: str, ingredients: [str1, str2, ...], expiry_date: [Date1, Date2, ...], quantity: [int1, int2, ...], measures: [str1, tr2, ...]}}
 
 Chat:
 1. /chat/post: Body {username, post, likes} -> 200: {data: true/ false (if toxic)}
